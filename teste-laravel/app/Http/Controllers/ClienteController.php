@@ -30,8 +30,17 @@ class ClienteController extends Controller
     public function index()
     {
         $clients = session('clients');
-        return view('clients.index', compact(['clients'])); // Outra forma para não utilizar o compact seria: 
-                                                            // ['clients' => this->clients]
+        $title = "Todos os clientes";
+
+        // Formas de passar valores para as views
+
+        // return view('clients.index', ['clients' => $clients, 'title' => "Todos os clientes"]);
+
+        // return view('clients.index')
+        //     ->with('clients', $clients)
+        //     ->with('title', 'Todos os clientes');
+
+        return view('clients.index', compact(['clients', 'title']));
     }
 
     /**
