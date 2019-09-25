@@ -1,3 +1,7 @@
+@extends('layouts.main')
+
+@section('content')
+
 <h3>Novo cliente</h3>
 
 <form action="{{ route('clients.store') }}" method="POST">
@@ -5,3 +9,5 @@
     <input type="text" name="name">
     <input type="submit" value="Salvar">
 </form>
+
+@endsection
