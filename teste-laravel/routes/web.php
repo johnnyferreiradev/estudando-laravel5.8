@@ -17,12 +17,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/products', 'MyController@products');
+Route::get('/products', function () {
+    return view('product');
+})->name('products');
+
+Route::get('/departaments', function () {
+    return view('departament');
+})->name('departaments');
+
 Route::get('/name', 'MyController@getName');
 Route::get('/age', 'MyController@getAge');
 Route::get('/multi/{n1}/{n2}', 'MyController@multi');
 
 Route::resource('clients', 'ClienteController');
+
+Route::get('opcoes/{option?}', function  ($option = null) {
+    return view('options', compact(['option']));
+})->name('options');
 
 # Estudando rotas
 
